@@ -1,7 +1,7 @@
 import argparse, os, sys, glob
 from omegaconf import OmegaConf
 from PIL import Image
-from tqdm import tqdm
+from tqdm.autoimport tqdm
 import numpy as np
 import torch
 from main import instantiate_from_config

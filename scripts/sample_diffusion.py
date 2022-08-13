@@ -2,7 +2,7 @@ import argparse, os, sys, glob, datetime, yaml
 import torch
 import time
 import numpy as np
-from tqdm import trange
+from tqdm.autoimport trange
 
 from omegaconf import OmegaConf
 from PIL import Image

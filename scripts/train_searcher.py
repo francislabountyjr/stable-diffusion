@@ -4,7 +4,7 @@ import scann
 import argparse
 import glob
 from multiprocessing import cpu_count
-from tqdm import tqdm
+from tqdm.autoimport tqdm
 
 from ldm.util import parallel_data_prefetch
 
