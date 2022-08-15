@@ -7,7 +7,7 @@ import torchvision.transforms.functional as TF
 from omegaconf import OmegaConf
 from functools import partial
 from PIL import Image
-from tqdm.autoimport tqdm
+from tqdm.auto import tqdm
 from torch.utils.data import Dataset, Subset
 
 import taming.data.utils as tdu
