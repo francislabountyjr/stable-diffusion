@@ -1,6 +1,8 @@
 # Stable Diffusion
 *Stable Diffusion was made possible thanks to a collaboration with [Stability AI](https://stability.ai/) and [Runway](https://runwayml.com/) and builds upon our previous work:*
 
+*Thanks to https://github.com/gpihl for helping out with batching and the degrees per second logic for smoother animations! 
+
 [**High-Resolution Image Synthesis with Latent Diffusion Models**](https://ommer-lab.com/research/latent-diffusion-models/)<br/>
 [Robin Rombach](https://github.com/rromb)\*,
 [Andreas Blattmann](https://github.com/ablattmann)\*,
