@@ -1,14 +1,20 @@
 # Stable Diffusion
 *Stable Diffusion was made possible thanks to a collaboration with [Stability AI](https://stability.ai/) and [Runway](https://runwayml.com/) and builds upon our previous work:*
 
-[**High-Resolution Image Synthesis with Latent Diffusion Models**](https://arxiv.org/abs/2112.10752)<br/>
+*Thanks to https://github.com/gpihl for helping out with batching and the degrees per second logic for smoother animations!
+
+*Thanks to https://github.com/DamascusGit for k_lms sampling
+
+[**High-Resolution Image Synthesis with Latent Diffusion Models**](https://ommer-lab.com/research/latent-diffusion-models/)<br/>
 [Robin Rombach](https://github.com/rromb)\*,
 [Andreas Blattmann](https://github.com/ablattmann)\*,
 [Dominik Lorenz](https://github.com/qp-qp)\,
 [Patrick Esser](https://github.com/pesser),
 [Björn Ommer](https://hci.iwr.uni-heidelberg.de/Staff/bommer)<br/>
 
-which is available on [GitHub](https://github.com/CompVis/latent-diffusion).
+**CVPR '22 Oral**
+
+which is available on [GitHub](https://github.com/CompVis/latent-diffusion). PDF at [arXiv](https://arxiv.org/abs/2112.10752). Please also visit our [Project page](https://ommer-lab.com/research/latent-diffusion-models/).
 
 ![txt2img-stable2](assets/stable-samples/txt2img/merged-0006.png)
 [Stable Diffusion](#stable-diffusion-v1) is a latent text-to-image diffusion
@@ -78,6 +84,9 @@ steps show the relative improvements of the checkpoints:
 
 Stable Diffusion is a latent diffusion model conditioned on the (non-pooled) text embeddings of a CLIP ViT-L/14 text encoder.
 
+
+#### Sampling Script
+
 After [obtaining the weights](#weights), link them
 ```
 mkdir -p models/ldm/stable-diffusion-v1/
@@ -87,6 +96,7 @@ and sample with
 ```
 python scripts/txt2img.py --prompt "a photograph of an astronaut riding a horse" --plms 
 ```
+
 By default, this uses a guidance scale of `--scale 7.5`, [Katherine Crowson's implementation](https://github.com/CompVis/latent-diffusion/pull/51) of the [PLMS](https://arxiv.org/abs/2202.09778) sampler, 
 and renders images of size 512x512 (which it was trained on) in 50 steps. All supported arguments are listed below (type `python scripts/txt2img.py --help`).
 
@@ -128,6 +138,28 @@ Note: The inference config for all v1 versions is designed to be used with EMA-o
 For this reason `use_ema=False` is set in the configuration, otherwise the code will try to switch from
 non-EMA to EMA weights. If you want to examine the effect of EMA vs no EMA, we provide "full" checkpoints
 which contain both types of weights. For these, `use_ema=False` will load and use the non-EMA weights.
+
+
+#### Diffusers Integration
+
+Another way to download and sample Stable Diffusion is by using the [diffusers library](https://github.com/huggingface/diffusers/tree/main#new--stable-diffusion-is-now-fully-compatible-with-diffusers)
+```py
+# make sure you're logged in with `huggingface-cli login`
+from torch import autocast
+from diffusers import StableDiffusionPipeline, LMSDiscreteScheduler
+
+pipe = StableDiffusionPipeline.from_pretrained(
+	"CompVis/stable-diffusion-v1-3-diffusers", 
+	use_auth_token=True
+)
+
+prompt = "a photo of an astronaut riding a horse on mars"
+with autocast("cuda"):
+    image = pipe(prompt)["sample"][0]  
+    
+image.save("astronaut_rides_horse.png")
+```
+
 
 
 ### Image Modification with Stable Diffusion
