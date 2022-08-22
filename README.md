@@ -3,7 +3,9 @@
 
 *Thanks to https://github.com/gpihl for helping out with batching and the degrees per second logic for smoother animations!
 
-*Thanks to https://github.com/DamascusGit for k_lms sampling
+*Thanks to https://github.com/DamascusGit for k_lms sampling!
+
+*Thanks to https://github.com/DOsinga for outcropping frames to mp4!
 
 [**High-Resolution Image Synthesis with Latent Diffusion Models**](https://ommer-lab.com/research/latent-diffusion-models/)<br/>
 [Robin Rombach](https://github.com/rromb)\*,
