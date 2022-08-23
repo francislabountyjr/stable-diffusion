@@ -7,6 +7,8 @@
 
 *Thanks to https://github.com/DOsinga for outcropping frames to mp4!
 
+*Warning - no filters/classifiers used to catch unsafe generations
+
 [**High-Resolution Image Synthesis with Latent Diffusion Models**](https://ommer-lab.com/research/latent-diffusion-models/)<br/>
 [Robin Rombach](https://github.com/rromb)\*,
 [Andreas Blattmann](https://github.com/ablattmann)\*,
