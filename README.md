@@ -5,7 +5,8 @@
 
 *Thanks to https://github.com/DOsinga for outcropping frames to mp4!
 
-*Warning - no filters/classifiers used to catch unsafe generations<br/>
+*Warning - no filters/classifiers used to catch unsafe generations
+---
 *Stable Diffusion was made possible thanks to a collaboration with [Stability AI](https://stability.ai/) and [Runway](https://runwayml.com/) and builds upon our previous work:*
 
 [**High-Resolution Image Synthesis with Latent Diffusion Models**](https://ommer-lab.com/research/latent-diffusion-models/)<br/>
