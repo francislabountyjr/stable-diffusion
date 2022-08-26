@@ -5,6 +5,8 @@
 
 *Thanks to https://github.com/DOsinga for outcropping frames to mp4!
 
+*thanks to https://colab.research.google.com/github/deforum/stable-diffusion/blob/main/Deforum_Stable_Diffusion.ipynb for some functions I took!
+
 *Warning - no filters/classifiers used to catch unsafe generations
 
 ---
